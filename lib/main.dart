@@ -1,4 +1,4 @@
-import 'package:default_app/user_interface/pages/home_page/home_page_view.dart';
+import 'package:default_app/user_interface/pages/implicit_animation_page/implicit_animation_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePageView(title: 'Default App'),
+      home: ImplicitAnimationView(),
     );
   }
 }
