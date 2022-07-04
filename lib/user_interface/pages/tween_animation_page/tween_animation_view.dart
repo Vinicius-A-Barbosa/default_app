@@ -25,23 +25,23 @@ class _TweenAnimationViewState extends State<TweenAnimationView> {
         Random().nextDouble() * (MediaQuery.of(context).size.width - _width);
     var circleColor =
         Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0);
+    
+    var currentTime = DateTime.now();
+    var currentHour = (currentTime.hour >= 12 ? currentTime.hour - 12 : currentTime.hour).toDouble();
+    var currentMinute = currentTime.minute.toDouble();
+    var currentSecond = currentTime.second.toDouble();
 
     return Stack(
       children: [
         Center(
-          child: Container(
-            width: 400,
-            height: 400,
-            decoration:
-                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-          ),
+          child: Image.asset('assets/images/clock.png')
         ),
         TweenAnimationBuilder(
-          duration: Duration(seconds: 216000),
-          tween: Tween<double>(begin: 0, end: 59),
-          builder: (_, double time, __) {
+          duration: Duration(seconds: 1),
+          tween: Tween<double>(begin: 0, end: currentHour),
+          builder: (_, double hour, __) {
             return Transform.rotate(
-              angle: (pi / 2 * time) - pi / 2,
+              angle: (pi / 6 * hour) - pi / 2,
               child: Transform.translate(
                 offset: Offset(50, 0),
                 child: Center(
@@ -56,16 +56,16 @@ class _TweenAnimationViewState extends State<TweenAnimationView> {
           },
         ),
         TweenAnimationBuilder(
-          duration: Duration(seconds: 3600),
-          tween: Tween<double>(begin: 0, end: 59),
-          builder: (_, double time, __) {
+          duration: Duration(seconds: 1),
+          tween: Tween<double>(begin: 0, end: currentMinute),
+          builder: (_, double minute, __) {
             return Transform.rotate(
-              angle: (pi / 2 * time) - pi / 2,
+              angle: (pi / 30 * minute) - pi / 2,
               child: Transform.translate(
                 offset: Offset(70, 0),
                 child: Center(
                   child: Container(
-                    width: 200,
+                    width: 180,
                     height: 9,
                     color: Colors.blue,
                   ),
@@ -75,16 +75,16 @@ class _TweenAnimationViewState extends State<TweenAnimationView> {
           },
         ),
         TweenAnimationBuilder(
-          duration: Duration(seconds: 60),
-          tween: Tween<double>(begin: 0, end: 59),
-          builder: (_, double time, __) {
+          duration: Duration(seconds: 1),
+          tween: Tween<double>(begin: 0, end: currentSecond),
+          builder: (_, double second, __) {
             return Transform.rotate(
-              angle: (pi / 2 * time) - pi / 2,
+              angle: (pi / 30 * second) - pi / 2,
               child: Transform.translate(
                 offset: Offset(60, 0),
                 child: Center(
                   child: Container(
-                    width: 200,
+                    width: 180,
                     height: 6,
                     color: Colors.red,
                   ),
