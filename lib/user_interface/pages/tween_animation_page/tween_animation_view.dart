@@ -10,22 +10,9 @@ class TweenAnimationView extends StatefulWidget {
 }
 
 class _TweenAnimationViewState extends State<TweenAnimationView> {
-  var _height = 50.0;
-  var _width = 100.0;
-
-  void _moveBall() {
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
-    var screenHeight = _height +
-        Random().nextDouble() * (MediaQuery.of(context).size.height - _height);
-    var screenWidth = _width +
-        Random().nextDouble() * (MediaQuery.of(context).size.width - _width);
-    var circleColor =
-        Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0);
-    
     var currentTime = DateTime.now();
     var currentHour = (currentTime.hour >= 12 ? currentTime.hour - 12 : currentTime.hour).toDouble();
     var currentMinute = currentTime.minute.toDouble();
