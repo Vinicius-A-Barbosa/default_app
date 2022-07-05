@@ -1,4 +1,4 @@
-import 'package:default_app/user_interface/pages/explicit_animation_page/explicit_animation_view.dart';
+import 'package:default_app/user_interface/pages/animated_builder_page/animated_builder_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ExplicitAnimationView(),
+      home: AnimatedBuilderView(),
     );
   }
 }
